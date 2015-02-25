@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="animalShelter">
+  <head>
+    <title>Animal Town</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/PetsController.js"></script>
+    <script src="services/PetFactory.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome to the Animal Town Pet Shelter</h2>
+      <h6>Adopt Before We Put 'Em Down</h6>
+      <div ng-controller="PetsCtrl">
+        <h3>Add a Pet</h3>
+        <form ng-submit="PetFactory.addPet()">
+          <input type="text" ng-model="PetFactory.petName" placeholder="name">
+          <input type="text" ng-model="PetFactory.petSpecies" placeholder="type of animal">
+          <button type="submit">Add That Pet</button>
+        </form>
+        <div class="available">
+          <h3>Pets Available to Adopt!</h3>
+          <ul>
+            <li ng-repeat="item in pets">
+              Adopt {{item.name}} the {{item.species}}?
+            </li>
+          </ul>
+        </div>
+        <div class="adopted">
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
